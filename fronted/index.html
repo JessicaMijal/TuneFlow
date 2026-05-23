@@ -1,1 +1,111 @@
-<h1>TuneFlow</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuneFlow</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h1>TuneFlow</h1>
+
+        <input
+        type="text"
+        id="search"
+        placeholder="Buscar canción..."
+        onkeyup="buscarCancion()">
+
+        <button class="playlist-btn">
+            + Crear Playlist
+        </button>
+
+    </div>
+
+    <div class="main-content">
+
+        <h2>Canciones populares</h2>
+
+        <div class="songs-container">
+
+            <!-- CANCIÓN 1 -->
+            <div class="song-card">
+
+                <img src="https://picsum.photos/200?1">
+
+                <h3>Night Drive</h3>
+
+                <p>SynthWave</p>
+
+                <audio controls>
+                    <source src="">
+                </audio>
+
+                <button onclick="traducir()">
+                    Traducir
+                </button>
+
+                <button>
+                    Compartir
+                </button>
+
+            </div>
+
+            <!-- CANCIÓN 2 -->
+            <div class="song-card">
+
+                <img src="https://picsum.photos/200?2">
+
+                <h3>Dreams</h3>
+
+                <p>Nova</p>
+
+                <audio controls>
+                    <source src="">
+                </audio>
+
+                <button onclick="traducir()">
+                    Traducir
+                </button>
+
+                <button>
+                    Compartir
+                </button>
+
+            </div>
+
+            <!-- CANCIÓN 3 -->
+            <div class="song-card">
+
+                <img src="https://picsum.photos/200?3">
+
+                <h3>Lost Sky</h3>
+
+                <p>Aether</p>
+
+                <audio controls>
+                    <source src="">
+                </audio>
+
+                <button onclick="traducir()">
+                    Traducir
+                </button>
+
+                <button>
+                    Compartir
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
