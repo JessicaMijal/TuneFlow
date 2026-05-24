@@ -74,7 +74,123 @@ app.post('/login',(req,res)=>{
 
             }else{
 
-                res.send("Usuario no encontrado");
+                res.send([]);
+            }
+        }
+    );
+});
+
+/* OBTENER CANCIONES */
+
+app.get('/canciones',(req,res)=>{
+
+    const sql =
+    `SELECT * FROM canciones`;
+
+    db.query(sql,(err,result)=>{
+
+        if(err){
+
+            console.log(err);
+
+            res.send(err);
+
+        }else{
+
+            res.send(result);
+        }
+    });
+});
+
+/* CREAR PLAYLIST */
+
+app.post('/crear-playlist',(req,res)=>{
+
+    const {
+        nombre,
+        usuario_id
+    } = req.body;
+
+    const sql = `
+    INSERT INTO playlists
+    (nombre,usuario_id)
+    VALUES(?,?)
+    `;
+
+    db.query(
+        sql,
+        [nombre,usuario_id],
+        (err,result)=>{
+
+            if(err){
+
+                console.log(err);
+
+                res.send(err);
+
+            }else{
+
+                res.send(
+                "Playlist creada"
+                );
+            }
+        }
+    );
+});
+
+/* OBTENER PLAYLISTS */
+
+app.get('/playlists',(req,res)=>{
+
+    const sql =
+    `SELECT * FROM playlists`;
+
+    db.query(sql,(err,result)=>{
+
+        if(err){
+
+            console.log(err);
+
+            res.send(err);
+
+        }else{
+
+            res.send(result);
+        }
+    });
+});
+
+/* AGREGAR CANCION A PLAYLIST */
+
+app.post('/agregar-cancion',(req,res)=>{
+
+    const {
+        playlist_id,
+        cancion_id
+    } = req.body;
+
+    const sql = `
+    INSERT INTO playlist_canciones
+    (playlist_id,cancion_id)
+    VALUES(?,?)
+    `;
+
+    db.query(
+        sql,
+        [playlist_id,cancion_id],
+        (err,result)=>{
+
+            if(err){
+
+                console.log(err);
+
+                res.send(err);
+
+            }else{
+
+                res.send(
+                "Canción agregada"
+                );
             }
         }
     );
